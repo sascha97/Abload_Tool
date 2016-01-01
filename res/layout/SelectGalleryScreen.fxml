@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    styleClass="vbox"
+    fx:controller="com.lutzenberger.sascha.controller.SelectGalleryController">
+
+    <VBox styleClass="header">
+        <Label id="text-header" text="%application.header" />
+    </VBox>
+
+    <VBox styleClass="content">
+        <Text text="%gallery.description" wrappingWidth="350" />
+    </VBox>
+
+    <VBox styleClass="content">
+        <HBox styleClass="box-toolbar">
+            <ChoiceBox fx:id="choiceBoxGallery" HBox.hgrow="ALWAYS" />
+            <Button fx:id="buttonRefreshGalleries" id="button-refresh" disable="true" onAction="#buttonRefreshGalleriesClicked">
+                <tooltip>
+                    <Tooltip text="%gallery.refresh" />
+                </tooltip>
+            </Button>
+
+            <Button fx:id="buttonAddGallery" id="button-add" disable="true" onAction="#buttonAddGalleryClicked">
+                <tooltip>
+                    <Tooltip text="%gallery.addGallery" />
+                </tooltip>
+            </Button>
+        </HBox>
+    </VBox>
+
+    <HBox styleClass="box-toolbar">
+        <Pane HBox.hgrow="ALWAYS" />
+        <Button fx:id="buttonSelectGallery" styleClass="button-inverse" text="%gallery.selectGallery"
+                disable="true" onAction="#buttonSelectGalleryClicked" />
+    </HBox>
+
+    <HBox styleClass="footer">
+        <Text id="text-contrast" text="%application.author" />
+        <Pane HBox.hgrow="ALWAYS" />
+        <Text fx:id="textLoginStatus" id="text-contrast" />
+    </HBox>
+
+    <stylesheets>
+        <URL value="@/css/Style.css" />
+    </stylesheets>
+</VBox>

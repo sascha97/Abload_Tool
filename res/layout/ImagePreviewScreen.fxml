@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+    styleClass="vbox"
+    fx:controller="com.lutzenberger.sascha.controller.ImagePreviewController">
+
+    <ImageView fx:id="imageViewPreview"
+        fitHeight="480.0" fitWidth="640.0"
+        pickOnBounds="true"
+        preserveRatio="true">
+    </ImageView>
+
+    <HBox styleClass="box-toolbar">
+        <Button text="%preview.rotateClockwise" onAction="#buttonRotateClockwiseClicked" />
+        <Button text="%preview.rotateCounterClockwise" onAction="#buttonRotateCounterClockwiseClicked" />
+        <Pane HBox.hgrow="ALWAYS" />
+        <Button styleClass="button-inverse" text="%preview.rotateAllImages" onAction="#buttonRotateAllImagesClicked" />
+    </HBox>
+
+    <stylesheets>
+        <URL value="@/css/Style.css" />
+    </stylesheets>
+</VBox>

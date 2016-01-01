@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.lutzenberger.sascha.controller.WelcomeController">
+
+    <MenuBar>
+        <Menu text="%menu.file">
+            <MenuItem text="%menu.file.close" onAction="#menuCloseApplicationClicked">
+                <accelerator>
+                    <KeyCodeCombination alt="DOWN" code="F4" control="UP" meta="UP" shift="UP" shortcut="UP"/>
+                </accelerator>
+            </MenuItem>
+        </Menu>
+    </MenuBar>
+
+    <VBox styleClass="vbox">
+        <VBox styleClass="header">
+            <Label id="text-header" text="%welcome.header"/>
+        </VBox>
+        <VBox styleClass="content">
+            <Button id="button-welcome" text="%welcome.button.complete"
+                    onAction="#buttonResizeUploadCreateLinksClicked"/>
+            <Button id="button-welcome" text="%welcome.button.upload" onAction="#buttonUploadCreateLinksClicked"/>
+            <Button id="button-welcome" text="%welcome.button.createLinks" onAction="#buttonCreateLinksClicked"/>
+        </VBox>
+        <HBox styleClass="footer">
+            <Text id="text-contrast" text="%application.author"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Text fx:id="textLoginStatus" id="text-contrast"/>
+        </HBox>
+    </VBox>
+
+    <stylesheets>
+        <URL value="@/css/Style.css"/>
+    </stylesheets>
+</VBox>

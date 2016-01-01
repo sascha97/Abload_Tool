@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+    styleClass="vbox"
+    fx:controller="com.lutzenberger.sascha.controller.AddGalleryController">
+
+    <VBox styleClass="header">
+        <Label id="text-header" text="%application.header" />
+    </VBox>
+
+    <VBox styleClass="content">
+        <Text text="%gallery.add.description" wrappingWidth="300" />
+
+        <Separator />
+
+        <Text text="%gallery.enterGalleryName" />
+        <TextField fx:id="textFieldGalleryName" promptText="%gallery.galleryName" focusTraversable="false" />
+
+        <HBox styleClass="box-toolbar">
+            <Button text="%application.cancel" onAction="#buttonCancelClicked"/>
+            <Pane HBox.hgrow="ALWAYS" />
+            <Button fx:id="buttonCreateGallery" styleClass="button-inverse" text="%gallery.createGallery" disable="true" onAction="#buttonCreateGalleryClicked" />
+        </HBox>
+    </VBox>
+
+
+    <HBox styleClass="footer">
+        <Text id="text-contrast" text="%application.author" />
+        <Pane HBox.hgrow="ALWAYS" />
+        <Text fx:id="textLoginStatus" id="text-contrast" />
+    </HBox>
+
+    <stylesheets>
+        <URL value="@/css/Style.css" />
+    </stylesheets>
+</VBox>

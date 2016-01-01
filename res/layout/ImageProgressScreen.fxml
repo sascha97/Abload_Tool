@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    styleClass="vbox" id="min-width"
+    fx:controller="com.lutzenberger.sascha.controller.ImageProgressController">
+
+    <HBox styleClass="box-spacing">
+        <ProgressBar fx:id="progressBarImageProgress" HBox.hgrow="ALWAYS" maxWidth="Infinity" minHeight="20" />
+        <HBox minWidth="55" alignment="CENTER_RIGHT">
+            <Text fx:id="textImageProgress" id="text-contrast" />
+        </HBox>
+    </HBox>
+
+    <GridPane styleClass="grid-pane">
+        <Text id="text-contrast" text="%progress.currentImage"
+            GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Text fx:id="textCurrentImage"
+            id="text-contrast"
+            GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Text id="text-contrast" text="%progress.remainingImages"
+            GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Text fx:id="textRemainingImages"
+            id="text-contrast"
+            GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Text id="text-contrast" text="%progress.remainingTime"
+            GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <Text fx:id="textRemainingTime"
+            id="text-contrast"
+            GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox styleClass="box-spacing">
+        <Pane HBox.hgrow="ALWAYS" />
+        <Button styleClass="button-inverse" text="%application.cancel" onAction="#buttonCancelClicked">
+            <tooltip>
+                <Tooltip text="%progress.cancel" />
+            </tooltip>
+        </Button>
+    </HBox>
+
+    <stylesheets>
+        <URL value="@/css/Style.css" />
+    </stylesheets>
+</VBox>

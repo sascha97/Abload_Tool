@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+    styleClass="vbox"
+    fx:controller="com.lutzenberger.sascha.controller.SelectWorkingDirectoryController">
+
+    <VBox styleClass="header">
+        <Label id="text-header" text="%application.header" />
+    </VBox>
+
+    <VBox styleClass="content">
+        <Text text="%workingDirectory.description" wrappingWidth="350" />
+
+        <Separator />
+
+        <Text fx:id="textSelectedDirectory" text="%workingDirectory.path" wrappingWidth="350" />
+    </VBox>
+
+    <HBox styleClass="box-toolbar">
+        <Button text="%workingDirectory.browse" onAction="#buttonBrowseClicked" />
+        <Pane HBox.hgrow="ALWAYS" />
+        <Button text="%application.cancel" onAction="#buttonCancelClicked" />
+        <Button fx:id="buttonSelectDirectory" styleClass="button-inverse" disable="true" text="%workingDirectory.next" onAction="#buttonSelectDirectoryClicked"/>
+    </HBox>
+
+    <HBox styleClass="footer">
+        <Text id="text-contrast" text="%application.author" />
+        <Pane HBox.hgrow="ALWAYS" />
+        <Text fx:id="textLoginStatus" id="text-contrast" />
+    </HBox>
+
+    <stylesheets>
+        <URL value="@/css/Style.css" />
+    </stylesheets>
+</VBox>

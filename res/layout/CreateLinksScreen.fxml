@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            id="edit-links-screen"
+            fx:controller="com.lutzenberger.sascha.controller.CreateLinksController">
+
+    <top>
+        <MenuBar>
+            <Menu text="%menu.file">
+                <MenuItem text="%links.menu.new.table" onAction="#menuCreateNewTableClicked">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="N" control="UP" meta="UP" shift="UP" shortcut="DOWN"/>
+                    </accelerator>
+                </MenuItem>
+
+                <SeparatorMenuItem/>
+
+                <MenuItem text="%menu.file.close" onAction="#menuCloseApplicationClicked">
+                    <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="F4" control="UP" meta="UP" shift="UP" shortcut="UP"/>
+                    </accelerator>
+                </MenuItem>
+            </Menu>
+
+            <Menu text="%menu.edit">
+                <MenuItem text="%links.menu.edit.editLinks" onAction="#actionEditLinksClicked">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="E" control="UP" meta="UP" shift="UP" shortcut="DOWN"/>
+                    </accelerator>
+                </MenuItem>
+                <SeparatorMenuItem/>
+
+                <MenuItem text="%menu.edit.selectAll" onAction="#menuSelectAllClicked">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="A" control="UP" meta="UP" shift="UP" shortcut="DOWN"/>
+                    </accelerator>
+                </MenuItem>
+
+                <SeparatorMenuItem/>
+
+                <MenuItem text="%menu.edit.cut" onAction="#menuCutClicked">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="X" control="UP" meta="UP" shift="UP" shortcut="DOWN"/>
+                    </accelerator>
+                </MenuItem>
+
+                <MenuItem text="%menu.edit.copy" onAction="#menuCopyClicked">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="C" control="UP" meta="UP" shift="UP" shortcut="DOWN"/>
+                    </accelerator>
+                </MenuItem>
+
+                <MenuItem text="%menu.edit.paste" onAction="#menuPasteClicked">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="V" control="UP" meta="UP" shift="UP" shortcut="DOWN"/>
+                    </accelerator>
+                </MenuItem>
+
+                <SeparatorMenuItem/>
+
+                <MenuItem fx:id="menuItemShowPreview" text="%links.menu.edit.preview" disable="true"
+                          onAction="#menuShowPreviewInTableClicked">
+                    <accelerator>
+                        <KeyCodeCombination alt="UP" code="P" control="UP" meta="UP" shift="UP" shortcut="DOWN"/>
+                    </accelerator>
+                </MenuItem>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <center>
+        <TextArea fx:id="textAreaLinks"/>
+    </center>
+
+    <bottom>
+        <ToolBar>
+            <Button styleClass="button-inverse" text="%links.menu.edit.editLinks" onAction="#actionEditLinksClicked"/>
+            <Text id="text-contrast" text="%links.selectFormat"/>
+            <ChoiceBox fx:id="choiceBoxFormat" HBox.hgrow="ALWAYS"/>
+        </ToolBar>
+    </bottom>
+
+    <stylesheets>
+        <URL value="@/css/Style.css"/>
+    </stylesheets>
+</BorderPane>
