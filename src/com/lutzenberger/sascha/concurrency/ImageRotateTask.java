@@ -7,9 +7,11 @@ import com.lutzenberger.sascha.image.ImageRotate;
 import com.lutzenberger.sascha.image.WorkingDirectory;
 
 /**
- * Created by saschalutzenberger on 30/12/15.
+ * This is a ImageRotateTask. This task is responsible for rotating the images to prepare them for the upload.
+ *
+ * @author Sascha Lutzenberger
+ * @version 1.0 - 30.12.2015
  */
-
 public class ImageRotateTask extends ImageTask<Void> {
     private int degree;
 

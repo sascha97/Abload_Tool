@@ -10,7 +10,10 @@ import com.lutzenberger.sascha.html.ImageSrc;
 import com.lutzenberger.sascha.image.WorkingDirectory;
 
 /**
- * Created by saschalutzenberger on 30/12/15.
+ * This is a ImageUploadTask. This task is responsible uploading the images to http://www.abload.de
+ *
+ * @author Sascha Lutzenberger
+ * @version 1.0 - 30.12.2015
  */
 public class ImageUploadTask extends ImageTask<List<ImageSrc>> {
     private Gallery gallery;

@@ -24,7 +24,10 @@ import com.lutzenberger.sascha.sax.StartElementListener;
 import com.lutzenberger.sascha.sax.Xml;
 
 /**
- * Created by saschalutzenberger on 28/12/15.
+ * This Task handles the Login on http://www.abload.de using the LoginAPI.
+ *
+ * @author Sascha Lutzenberger
+ * @version 1.0 - 28.12.2015
  */
 public class LoginTask extends Task<LoginResponse> {
     private ResourceBundle res = ResourceBundle.getBundle("strings/Values");
@@ -35,14 +38,20 @@ public class LoginTask extends Task<LoginResponse> {
      */
     private AtomicReference<String> atomicReferenceLoginStatus = new AtomicReference<>();
 
+    /**
+     * The StringProperty which is containing the login status.
+     */
     private StringProperty loginStatus = new SimpleStringProperty();
 
+    //The user name of the Abload account
     private static final String USERNAME = "";
+    //The password for the Abload account
     private static final String PASSWORD = "";
 
     private LoginResponse loginResponse;
 
     public LoginTask() {
+        //Set up the Properties to their default Strings
         loginStatus.setValue(res.getString("login.notLoggedIn"));
     }
 
@@ -75,6 +84,11 @@ public class LoginTask extends Task<LoginResponse> {
         return loginResponse;
     }
 
+    /**
+     * Get the loginStatus Property as ReadOnlyProperty to be able to bind this to an User Interface.
+     *
+     * @return The loginStatus Property which can be easily bound to an User Interface.
+     */
     public ReadOnlyStringProperty loginStatusProperty() {
         return loginStatus;
     }
@@ -87,10 +101,17 @@ public class LoginTask extends Task<LoginResponse> {
         }
     }
 
+    /**
+     * The method is used for updating the loginStatus property. The method will be called by the thread.
+     *
+     * @param newLoginStatus The new status of the login.
+     */
     private void updateLoginStatus(String newLoginStatus) {
+        //This can only be updated inside the FxApplicationThread
         if(isFXApplicationThread()) {
             loginStatus.setValue(newLoginStatus);
         } else if(atomicReferenceLoginStatus.getAndSet(newLoginStatus) == null) {
+            //This can only be updated inside the FxApplicationThread
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
@@ -101,6 +122,7 @@ public class LoginTask extends Task<LoginResponse> {
         }
     }
 
+    //Checks if current thread is a JavaFx Application thread
     private boolean isFXApplicationThread() {
         return Platform.isFxApplicationThread();
     }
