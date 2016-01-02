@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
  * This class handles the scaling of an originalImage
  *
  * @author Sascha Lutzenberger
- * @version 1.0 - 08.09.2015
+ * @version 1.0 - 27.12.2015
  */
 class Scale {
     //The buffered originalImage which has to be scaled

@@ -6,7 +6,10 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by saschalutzenberger on 28/12/15.
+ * This class sets up the Working Directory of the application.
+ *
+ * @author Sascha Lutzenberger
+ * @version 1.0 - 28.12.2015
  */
 public class WorkingDirectory {
     //The name of the cover image directory

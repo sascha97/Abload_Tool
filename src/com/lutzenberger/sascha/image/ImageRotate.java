@@ -8,7 +8,10 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by saschalutzenberger on 28/12/15.
+ * This class is responsible for Rotating all images.
+ *
+ * @author Sascha Lutzenberger
+ * @version 1.0 - 28.12.2015
  */
 public class ImageRotate {
     private static final double THETA_R90 = Math.toRadians(90);
@@ -16,8 +19,10 @@ public class ImageRotate {
     private static final double THETA_R270 = Math.toRadians(270);
 
     public static File rotateImage(File imageFile, int degree) throws IOException {
+        //Rotation between 0 and 360
         degree = degree % 360;
 
+        //Only rotate image if it is a multiple of 90 degrees.
         if(degree == 90 || degree == 180 || degree == 270) {
             BufferedImage imageToRotate = ImageIO.read(imageFile);
             BufferedImage rotatedImage = rotateImage(imageToRotate, degree);

@@ -13,7 +13,10 @@ import java.io.IOException;
 import java.util.Locale;
 
 /**
- * Created by saschalutzenberger on 28/12/15.
+ * This class is responsible for resizing the images.
+ *
+ * @author Sascha Lutzenberger
+ * @version 1.0 - 28.12.2015
  */
 public class ImageResizer {
     //The "settings" for the jpgImageWriter

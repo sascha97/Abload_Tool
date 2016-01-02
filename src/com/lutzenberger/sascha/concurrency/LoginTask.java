@@ -59,6 +59,7 @@ public class LoginTask extends Task<LoginResponse> {
     protected LoginResponse call() throws Exception {
         updateLoginStatus(res.getString("login.loggingIn"));
 
+        //Create the client which is executing the API call
         HttpClient client = HttpClientBuilder.create().build();
         HttpGet request = new HttpGet("http://www.abload.de/api/login?name=" +
                 URLEncoder.encode(USERNAME, String.valueOf(StandardCharsets.UTF_8)) + "&password="
@@ -72,10 +73,14 @@ public class LoginTask extends Task<LoginResponse> {
         } else {
             loginResponse = new LoginResponse();
 
+            //The answer of the API should be an xml document with "abload" as root element
             RootElement root = new RootElement("abload");
+            //The element status should contain the status of the api
             root.getChild("status").setStartElementListener(new StatusListener());
+            //The element login contains all the user information if available
             root.getChild("login").setStartElementListener(new LoginListener());
 
+            //Get the answer from the API
             Xml.parse(response.getEntity().getContent(), Xml.Encoding.UTF_8, root.getContentHandler());
         }
 
